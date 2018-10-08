@@ -1,4 +1,4 @@
-<ks-nav-menu
-        [activeRoute]="navigationStore.getActiveRoute()|async"
-        (navigate)="navigationStore.navigate($event)"
-></ks-nav-menu>
+<ul>
+    <li routerLink="/dashboard" routerLinkActive="active">{{ 'NAVIGATION.DASHBOARD' | translate}}</li>
+    <li routerLink="/games" routerLinkActive="active">{{ 'NAVIGATION.GAMES' | translate}}</li>
+</ul>

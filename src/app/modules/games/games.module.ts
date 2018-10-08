@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
-
 import { GamesComponent } from './components/games/games.component';
-import { RouterModule } from '@angular/router';
+import { GamesRoutesModule } from './games-routes.module';
 
-const routes = [
-  {path: '', component: GamesComponent}
-];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes)
+    GamesRoutesModule
   ],
   exports: [],
   declarations: [GamesComponent],

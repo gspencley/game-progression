@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { YourProfileComponent } from './components/your-profile/your-profile.component';
 import { CommonModule } from '@angular/common';
@@ -10,20 +9,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProfileEffects } from './store/profile.effects';
 import { ProfileService } from './services/profile.service';
 import { ProfileDetailsModule } from './modules/profile-details/profile-details.module';
-
-const routes = [
-  {
-    path: '',
-    children: [
-      {path: 'details', loadChildren: './modules/profile-details/profile-details.module#ProfileDetailsModule'},
-      {path: 'edit', loadChildren: './modules/profile-edit/profile-edit.module#ProfileEditModule'}
-    ]
-  }
-];
+import { YourProfileRoutesModule } from './your-profile-routes.module';
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes),
+    YourProfileRoutesModule,
+
     TranslateModule.forChild(),
     CommonModule,
 

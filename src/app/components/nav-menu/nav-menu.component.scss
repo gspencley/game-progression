@@ -14,14 +14,12 @@ li {
   margin: 0;
   padding: 16px;
 
+  cursor: pointer;
+
   &.active {
     background-color: $menu-highlight-color;
   }
 
-  a {
-    font-family: Roboto, Helvetica, sans-serif;
-    font-size: 1.4em;
-    color: $light-text;
-    cursor: pointer;
-  }
+  font-size: 1.4em;
+  color: $light-text;
 }

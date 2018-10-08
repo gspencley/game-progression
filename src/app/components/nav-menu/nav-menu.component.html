@@ -1,8 +1,4 @@
 <ul>
-    <li [ngClass]="{ active: isActive('/dashboard') }">
-        <a (click)="doNavigate('/dashboard')">{{ 'NAVIGATION.DASHBOARD' | translate}}</a>
-    </li>
-    <li [ngClass]="{ active: isActive('/games') }">
-        <a (click)="doNavigate('/games')">{{ 'NAVIGATION.GAMES' | translate}}</a>
-    </li>
+    <li routerLink="/dashboard" routerLinkActive="active">{{ 'NAVIGATION.DASHBOARD' | translate}}</li>
+    <li routerLink="/games" routerLinkActive="active">{{ 'NAVIGATION.GAMES' | translate}}</li>
 </ul>

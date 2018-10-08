@@ -15,9 +15,7 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { CommonModule } from '@angular/common';
 import { ProfileNavModule } from './modules/profile-nav/profile-nav.module';
 import { SelectLanguageModule } from './modules/select-language/select-language.module';
-import { NavigationStore } from './store/navigation/navigation.store';
-import { navigationReducer } from './store/navigation/navigation.reducer';
-import { NavigationEffects } from './store/navigation/navigation.effects';
+import { rootReducer } from './store/root-reducer';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -33,11 +31,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     HttpClientModule,
-
-    AppRoutes,
-
     CommonModule,
     BrowserModule,
+
+    AppRoutes,
     ProfileNavModule,
     SelectLanguageModule,
 
@@ -49,14 +46,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
 
-
-    StoreModule.forRoot({navigationState: navigationReducer }),
-    EffectsModule.forRoot([NavigationEffects])
+    StoreModule.forRoot(rootReducer),
+    EffectsModule.forRoot([])
   ],
-  providers: [
-    AppStore,
-    NavigationStore
-  ],
+  providers: [AppStore],
   bootstrap: [AppComponent]
 })
 export class AppModule {

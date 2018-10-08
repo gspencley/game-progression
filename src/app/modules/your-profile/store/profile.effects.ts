@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { ProfileService } from '../services/profile.service';
-import { of } from 'rxjs';
 import { Profile } from '../types/profile';
-import { LoadProfile, LoadProfileSuccess, ProfileActionTypes } from './profile.actions';
+import { LoadProfileSuccess, ProfileActionTypes } from './profile.actions';
 import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { ProfileStore } from './profile.store';
 
@@ -18,23 +17,11 @@ export class ProfileEffects {
     withLatestFrom(this.profileStore.getProfile()),
     map(([action, profile]) => profile),
     filter((profile: Profile) => profile.id === 0),
-    tap(() => {
-      console.log('Going to Load The Profile Now...');
-    }),
     switchMap(() =>
       this.profileService.getProfile().pipe(
-        switchMap((profile: Profile) => of(new LoadProfileSuccess(profile)))
+        map((profile: Profile) => new LoadProfileSuccess(profile)),
+        // TODO: catchError() - preemptive STFU Katie, I know & I'll get to it :P
       )
     )
   );
-  /*
-      @Effect()
-      initializeProfile = this.actions.pipe(
-          ofType(ProfileActionTypes.Initialize),
-          tap(() => { console.log('Initialize Profile'); }),
-          withLatestFrom(this.profileStore.getProfile()),
-          map(([action, profile]) => profile),
-          filter((profile: Profile) => profile.id === 0),
-          switchMap(() => of(new LoadProfile()))
-      );*/
 }

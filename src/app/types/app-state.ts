@@ -3,7 +3,6 @@ import { LanguageState } from '../modules/select-language/types/language.state';
 import { NavigationState } from './navigation/navigation-state.interface';
 
 export interface AppState {
-  readonly navigationState?: NavigationState;
-  readonly languageState?: LanguageState;
-  readonly profileState?: ProfileState;
+  readonly languageState: LanguageState;
+  readonly profileState: ProfileState;
 }

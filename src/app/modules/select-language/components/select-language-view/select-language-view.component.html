@@ -1,2 +1,2 @@
-<a class="language-toggle" [ngClass]="{active: isLanguage('en')}" (click)="change('en')">English</a> |
-<a class="language-toggle" [ngClass]="{active: isLanguage('fr')}" (click)="change('fr')">Français</a>
+<a class="language-toggle" [class.active]="isLanguage('en')" (click)="change('en')">English</a> |
+<a class="language-toggle" [class.active]="isLanguage('fr')" (click)="change('fr')">Français</a>
