@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {Language} from '../../modules/language/types/language';
+import {Language} from '../../modules/select-language/types/language';
 
 @Component({
   selector: 'ks-root',
