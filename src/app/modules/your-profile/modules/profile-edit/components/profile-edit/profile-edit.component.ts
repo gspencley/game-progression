@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-    selector: 'ks-profile-edit',
-    template: 'Edit Profile'
+  selector: 'ks-profile-edit',
+  template: 'Edit Profile'
 })
-export class ProfileEditComponent {}
+export class ProfileEditComponent {
+}

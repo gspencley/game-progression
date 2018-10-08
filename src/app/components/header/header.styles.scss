@@ -1,0 +1,18 @@
+@import "../../../styles/colors";
+@import "../../../styles/padding";
+
+:host {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  width: 100%;
+  margin: 0;
+  padding: $default-padding;
+
+  background-color: $dark-blue;
+}
+
+h1 {
+  color: $light-text;
+}

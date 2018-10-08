@@ -1,0 +1,27 @@
+@import "../../../styles/colors";
+
+ul, li {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0;
+  padding: 16px;
+
+  &.active {
+    background-color: $menu-highlight-color;
+  }
+
+  a {
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 1.4em;
+    color: $light-text;
+    cursor: pointer;
+  }
+}

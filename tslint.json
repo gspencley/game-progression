@@ -23,7 +23,8 @@
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "spaces",
+      2
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -117,6 +118,8 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "no-irregular-whitespace": true,
+    "whitespace": [ true, "check-module" ]
   }
 }
