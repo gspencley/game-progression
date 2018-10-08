@@ -1,0 +1,10 @@
+@import "colors";
+
+.card {
+  margin: auto;
+  background-color: $blue;
+  color: $light-text;
+  border-radius: 0.5rem;
+
+  padding: 16px;
+}

@@ -1,0 +1,22 @@
+@import "../../../../../../../styles/colors";
+
+a {
+  display: flex;
+  align-items: center;
+  color: $light-text;
+}
+
+img {
+  width: 20%;
+  height: 20%;
+
+  max-width: 128px;
+  max-height: 128px;
+
+  border-radius: 50%;
+}
+
+.name {
+  padding: 0 32px;
+  font-size: 1.5em;
+}

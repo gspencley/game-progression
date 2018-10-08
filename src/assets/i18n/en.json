@@ -1,0 +1,18 @@
+{
+  "HEADER": {
+    "GAME_PROGRESSION": "Game Progression"
+  },
+  "NAVIGATION": {
+    "DASHBOARD": "Dashboard",
+    "GAMES": "Games"
+  },
+  "PROFILE": {
+    "TITLE": "Your Profile",
+    "NAME": "Name",
+    "LANGUAGE": "Language",
+    "AVERAGE_HOURS_PER_DAY": "Average Number of Hours to Game Per Day"
+  },
+  "BUTTONS": {
+    "EDIT": "Edit"
+  }
+}

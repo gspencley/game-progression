@@ -1,0 +1,4 @@
+<ks-nav-menu
+        [activeRoute]="navigationStore.getActiveRoute()|async"
+        (navigate)="navigationStore.navigate($event)"
+></ks-nav-menu>

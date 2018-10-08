@@ -1,0 +1,14 @@
+@import "~src/styles/_colors";
+
+:host {
+  margin: auto;
+  display: block;
+  text-align: center;
+  background-color: $dark-blue;
+  padding: 16px 0;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
