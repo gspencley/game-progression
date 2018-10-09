@@ -1,4 +1,4 @@
-@import "../../../../../styles/colors";
+@import "~src/styles/colors";
 
 a {
   display: flex;
@@ -17,6 +17,7 @@ img {
 }
 
 .name {
-  padding: 0 32px;
+  padding: 0 0 0 32px;
   font-size: 1.5em;
+  text-align: right;
 }

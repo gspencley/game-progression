@@ -1,10 +1,10 @@
-@import "colors";
+@import "~src/styles/colors";
 
-.card {
+:host {
+  display: block;
   margin: auto;
   background-color: $blue;
   color: $light-text;
   border-radius: 0.5rem;
-
   padding: 16px;
 }

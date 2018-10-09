@@ -1,10 +1,11 @@
-@import "../../../styles/colors";
-@import "../../../styles/padding";
+@import "~src/styles/colors";
+@import "~src/styles/padding";
 
 :host {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  align-items: center;
 
   width: 100%;
   margin: 0;
