@@ -1,22 +1,19 @@
 import { NgModule } from '@angular/core';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UiModule } from '../../../ui/ui.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProfileDetailsMenuComponent } from './components/profile-details-menu/profile-details-menu.component';
 import { ProfileDetailsViewComponent } from './components/profile-details-view/profile-details-view.component';
+import { ProfileDetailsRoutesModule } from './profile-details-routes.module';
 
-const routes = [
-  {path: '', component: ProfileDetailsComponent}
-];
 
 @NgModule({
   imports: [
     CommonModule,
     UiModule,
-    TranslateModule.forChild(),
-    RouterModule.forChild(routes)
+    ProfileDetailsRoutesModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     ProfileDetailsComponent,

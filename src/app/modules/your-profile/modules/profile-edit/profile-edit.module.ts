@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ProfileEditRoutesModule } from './profile-edit-routes.module';
 
-const routes = [
-  {path: '', component: ProfileEditComponent}
-];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes),
+    ProfileEditRoutesModule,
     CommonModule
   ],
 
