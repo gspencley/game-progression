@@ -9,11 +9,13 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { SelectLanguageViewComponent } from './components/select-language-view/select-language-view.component';
 import { SelectLanguageComponent } from './components/select-language/select-language.component';
+import { UiModule } from '../ui/ui.module';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
+    UiModule,
 
     TranslateModule.forChild(),
 

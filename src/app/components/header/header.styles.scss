@@ -2,16 +2,12 @@
 @import "~src/styles/padding";
 
 :host {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
   margin: 0;
   padding: $default-padding;
-
   background-color: $dark-blue;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 h1 {

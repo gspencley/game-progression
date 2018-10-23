@@ -1,0 +1,6 @@
+@import "~src/styles/padding";
+
+:host {
+  display: block;
+  padding: $default-padding;
+}

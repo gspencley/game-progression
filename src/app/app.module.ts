@@ -16,6 +16,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileNavModule } from './modules/profile-nav/profile-nav.module';
 import { SelectLanguageModule } from './modules/select-language/select-language.module';
 import { rootReducer } from './store/root-reducer';
+import { MainContentComponent } from './components/main-content/main-content.component';
+import { UiModule } from './modules/ui/ui.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -27,7 +29,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     FooterComponent,
     NavigationComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    MainContentComponent
   ],
   imports: [
     HttpClientModule,
@@ -37,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutes,
     ProfileNavModule,
     SelectLanguageModule,
+    UiModule,
 
     TranslateModule.forRoot({
       loader: {

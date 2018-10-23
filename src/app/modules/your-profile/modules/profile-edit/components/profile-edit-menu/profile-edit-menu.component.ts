@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-edit-menu.component.scss']
 })
 export class ProfileEditMenuComponent {
-
+  save() {
+  }
 }

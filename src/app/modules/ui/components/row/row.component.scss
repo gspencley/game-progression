@@ -1,6 +1,13 @@
-:host {
+div {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  flex-flow: row;
   align-items: center;
+}
+
+.wrap {
+  flex-flow: row wrap;
+}
+
+.space-between {
+  justify-content: space-between;
 }

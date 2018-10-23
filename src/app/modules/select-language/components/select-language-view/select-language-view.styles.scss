@@ -1,11 +1,10 @@
 @import "~src/styles/_colors";
 
-.language-toggle {
-  cursor: pointer;
+:host {
   color: $light-text;
 }
 
-.language-toggle.active {
+.active {
   font-weight: 700;
   text-decoration: underline;
 }

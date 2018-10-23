@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ks-dashboard',
-  template: '<h1>Dashboard</h1>'
+  templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent {
 }

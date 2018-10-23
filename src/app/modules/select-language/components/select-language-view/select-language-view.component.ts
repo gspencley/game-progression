@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Language } from '../../types/language';
 
 @Component({
@@ -6,15 +6,19 @@ import { Language } from '../../types/language';
   templateUrl: './select-language-view.component.html',
   styleUrls: ['./select-language-view.styles.scss']
 })
-export class SelectLanguageViewComponent {
+export class SelectLanguageViewComponent implements OnChanges {
   @Input()
   language: Language;
 
   @Output()
   switchLanguage = new EventEmitter<Language>();
 
-  isLanguage(lang) {
-    return this.language === lang;
+  isEnglish: boolean;
+  isFrench: boolean;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.isEnglish = this.language  === Language.EN;
+    this.isFrench = this.language   === Language.FR;
   }
 
   change(lang: Language) {
