@@ -1,27 +1,30 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { Language } from '../../types/language';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Language } from '../../types/language.interface';
 
 @Component({
   selector: 'ks-select-language-view',
   templateUrl: './select-language-view.component.html',
   styleUrls: ['./select-language-view.styles.scss']
 })
-export class SelectLanguageViewComponent implements OnChanges {
+export class SelectLanguageViewComponent {
   @Input()
-  language: Language;
+  languageId: number;
+
+  @Input()
+  languages: Language[];
 
   @Output()
-  switchLanguage = new EventEmitter<Language>();
+  switchLanguage = new EventEmitter<number>();
 
-  isEnglish: boolean;
-  isFrench: boolean;
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.isEnglish = this.language  === Language.EN;
-    this.isFrench = this.language   === Language.FR;
+  isSelected(languageId: number) {
+    return languageId === this.languageId;
   }
 
-  change(lang: Language) {
-    this.switchLanguage.emit(lang);
+  change(languageId: number) {
+    this.switchLanguage.emit(languageId);
+  }
+
+  notLastItem(index) {
+    return index < this.languages.length - 1;
   }
 }

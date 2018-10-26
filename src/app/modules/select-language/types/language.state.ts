@@ -1,5 +1,5 @@
-import { Language } from './language';
+import { Language } from './language.interface';
 
 export interface LanguageState {
-  readonly language: Language;
+  readonly languages: Language[];
 }

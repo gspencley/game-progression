@@ -10,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SelectLanguageViewComponent } from './components/select-language-view/select-language-view.component';
 import { SelectLanguageComponent } from './components/select-language/select-language.component';
 import { UiModule } from '../ui/ui.module';
+import { LanguageService } from './services/language.service';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { UiModule } from '../ui/ui.module';
     SelectLanguageComponent,
     SelectLanguageViewComponent
   ],
-  providers: [LanguageStore],
+  providers: [LanguageStore, LanguageService],
   exports: [SelectLanguageComponent]
 })
 export class SelectLanguageModule {

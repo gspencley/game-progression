@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Language } from '../../modules/select-language/types/language';
+import { LanguageCode } from '../../modules/select-language/types/language-code.enum';
 
 @Component({
   selector: 'ks-root',
@@ -8,7 +8,7 @@ import { Language } from '../../modules/select-language/types/language';
 })
 export class AppComponent {
   constructor(translate: TranslateService) {
-    translate.setDefaultLang(Language.EN);
+    translate.setDefaultLang(LanguageCode.EN);
   }
 }
 

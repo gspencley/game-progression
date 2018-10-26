@@ -1,0 +1,25 @@
+Backlog:
+	Add Game
+
+	Dashboard
+		Display total number of days required to finish all uncompleted games
+		Progress bar to illustrate % complete of incomplete games out of total number
+		Progress bar to illustrate % complete of games out of total number of games
+
+	Games
+		Card listing of all game entries
+		Sort by feature
+		Filters feature
+		Delete feature
+
+Doing:
+	Edit Profile
+
+
+Done:
+	Language Selection
+	Layout
+	Header
+	Profile Nav Link
+	View Profile
+	Navigation / routing

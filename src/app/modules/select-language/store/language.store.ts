@@ -4,9 +4,10 @@ import { map } from 'rxjs/operators';
 import { AppState } from '../../../types/app-state';
 import { Observable } from 'rxjs';
 import { LanguageState } from '../types/language.state';
-import { Language } from '../types/language';
+import { LanguageCode } from '../types/language-code.enum';
 import { Store } from '@ngrx/store';
-import { SetLanguage } from './language.actions';
+import { LoadLanguages, SetLanguage } from './language.actions';
+import { Language } from '../types/language.interface';
 
 @Injectable()
 export class LanguageStore {
@@ -19,13 +20,21 @@ export class LanguageStore {
     );
   }
 
-  getLanguage() {
+  getLanguages(): Observable<Language[]> {
+    return this.getLanguageState().pipe(map((state: LanguageState) => state.languages));
+  }
+
+  getLanguage(): Observable<Language> {
     return this.getLanguageState().pipe(
       map((state: LanguageState) => state.language)
     );
   }
 
-  setLanguage(lang: Language) {
+  setLanguage(lang: LanguageCode) {
     this.store.dispatch(new SetLanguage(lang));
+  }
+
+  loadLanguages() {
+    this.store.dispatch(new LoadLanguages());
   }
 }

@@ -10,9 +10,14 @@
     "TITLE": "Your Profile",
     "NAME": "Name",
     "LANGUAGE": "Language",
-    "AVERAGE_HOURS_PER_DAY": "Average Number of Hours to Game Per Day"
+    "AVERAGE_HOURS_PER_DAY": "Average Number of Hours to Game Per Day",
+    "EDIT_MY_PROFILE": "Edit My Profile",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name"
   },
   "BUTTONS": {
-    "EDIT": "Edit"
+    "EDIT": "Edit",
+    "SAVE": "Save",
+    "CANCEL": "Cancel"
   }
 }

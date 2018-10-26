@@ -12,13 +12,11 @@ export class LinkComponent implements OnInit {
   @Input()
   active: string;
 
-  hasLink: boolean;
-  notHasLink: boolean;
+  hasHref: boolean;
+  notHasHref: boolean;
 
   ngOnInit(): void {
-    this.notHasLink = this.hasLink === undefined;
-    this.hasLink = this.hasLink !== undefined;
+    this.notHasHref = this.href === undefined;
+    this.hasHref    = this.href !== undefined;
   }
-
-
 }

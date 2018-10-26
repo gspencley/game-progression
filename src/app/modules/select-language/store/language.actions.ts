@@ -1,15 +1,18 @@
 import { Action } from '@ngrx/store';
-import { Language } from '../types/language';
+import { Language } from '../types/language.interface';
 
 export enum LanguageActionTypes {
-  SetLanguage = '[Language] SetLanguage'
+  LoadLanguages = '[Language] Load',
+  LoadLanguagesSuccess = '[Language] LoadSuccess'
 }
 
-export class SetLanguage implements Action {
-  readonly type = LanguageActionTypes.SetLanguage;
-
-  constructor(public language: Language) {
-  }
+export class LoadLanguages implements Action {
+  readonly type = LanguageActionTypes.LoadLanguages;
 }
 
-export type LanguageAction = SetLanguage;
+export class LoadLanguagesSuccess implements Action {
+  readonly type = LanguageActionTypes.LoadLanguagesSuccess;
+  constructor(public languages: Language[]) {}
+}
+
+export type LanguageAction = LoadLanguages | LoadLanguagesSuccess;

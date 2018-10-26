@@ -9,6 +9,10 @@ import { RouterModule } from '@angular/router';
 import { InputComponent } from './components/input/input.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MenuControlsComponent } from './components/menu-controls/menu-controls.component';
+import { SelectComponent } from './components/select/select.component';
+import { LabelComponent } from './components/label/label.component';
+import { SeparatorComponent } from './components/separator/separator.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const MaterialModules = [ MatDialogModule ];
 
@@ -16,16 +20,20 @@ const MaterialModules = [ MatDialogModule ];
   imports: [
     ...MaterialModules,
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   declarations: [
+    LabelComponent,
     CardComponent,
     ButtonComponent,
     RowComponent,
     LinkComponent,
     InputComponent,
     MenuComponent,
-    MenuControlsComponent
+    MenuControlsComponent,
+    SelectComponent,
+    SeparatorComponent
   ],
   exports: [
     ...MaterialModules,
@@ -35,7 +43,9 @@ const MaterialModules = [ MatDialogModule ];
     LinkComponent,
     InputComponent,
     MenuComponent,
-    MenuControlsComponent
+    MenuControlsComponent,
+    SelectComponent,
+    SeparatorComponent
   ],
 })
 export class UiModule {}

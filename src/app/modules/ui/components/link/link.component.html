@@ -1,4 +1,6 @@
 <ng-template #content><ng-content></ng-content></ng-template>
 
-<a *ngIf="hasLink" routerLink="{{href}}" routerLinkActive="{{active}}"><ng-container *ngTemplateOutlet="content"></ng-container></a>
-<a *ngIf="notHasLink"><ng-container *ngTemplateOutlet="content"></ng-container></a>
+<a *ngIf="hasHref" routerLink="{{href}}" routerLinkActive="{{active}}">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+</a>
+<a *ngIf="notHasHref"><ng-container *ngTemplateOutlet="content"></ng-container></a>

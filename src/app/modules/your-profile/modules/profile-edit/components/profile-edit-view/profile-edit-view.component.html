@@ -1,0 +1,10 @@
+<ks-profile-edit-menu (saveChanges)="saveChanges()"></ks-profile-edit-menu>
+
+<ks-card>
+    <ks-input [label]="'PROFILE.FIRST_NAME'|translate" [control]="firstName"></ks-input>
+    <ks-input [label]="'PROFILE.LAST_NAME'|translate" [control]="lastName"></ks-input>
+    <ks-select [label]="'PROFILE.LANGUAGE'|translate"
+               [options]="getLanguagesAsOptions()"
+               [control]="language"></ks-select>
+    <ks-input [label]="'PROFILE.AVERAGE_HOURS_PER_DAY'|translate" [control]="averageNumberOfHoursPerDay"></ks-input>
+</ks-card>

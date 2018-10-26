@@ -11,9 +11,14 @@
     "TITLE": "Votre profil",
     "NAME": "Nom",
     "LANGUAGE": "Langue",
-    "AVERAGE_HOURS_PER_DAY": "Nombre moyen d'heures de jeu par jour"
+    "AVERAGE_HOURS_PER_DAY": "Nombre moyen d'heures de jeu par jour",
+    "EDIT_MY_PROFILE": "Éditer mon profil",
+    "FIRST_NAME": "Prénom",
+    "LAST_NAME": "Nom De Famille"
   },
   "BUTTONS": {
-    "EDIT": "Le Edit"
+    "EDIT": "Modifier",
+    "SAVE": "Conserver",
+    "CANCEL": "Décommander"
   }
 }

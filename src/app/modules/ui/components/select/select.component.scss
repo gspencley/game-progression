@@ -1,11 +1,7 @@
 @import "~src/styles/fonts";
 @import "~src/styles/forms";
 
-:host {
-  padding: 4px;
-}
-
-input {
+select {
   @extend .f2;
   @extend .input-select;
 }

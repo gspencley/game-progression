@@ -1,16 +1,15 @@
 import { LanguageState } from '../types/language.state';
-import { LanguageAction, LanguageActionTypes, SetLanguage } from './language.actions';
-import { Language } from '../types/language';
+import { LanguageAction, LanguageActionTypes, LoadLanguagesSuccess } from './language.actions';
 
 const initialState: LanguageState = {
-  language: Language.EN
+  languages: []
 };
 
 export const languageReducer = (state: LanguageState = initialState, action: LanguageAction): LanguageState => {
   switch (action.type) {
-    case LanguageActionTypes.SetLanguage:
-      const setAction = action as SetLanguage;
-      return {...state, language: setAction.language};
+    case LanguageActionTypes.LoadLanguagesSuccess:
+      const loadSuccessAction = action as LoadLanguagesSuccess;
+      return { ...state, languages: loadSuccessAction.languages };
     default:
       return state;
   }
