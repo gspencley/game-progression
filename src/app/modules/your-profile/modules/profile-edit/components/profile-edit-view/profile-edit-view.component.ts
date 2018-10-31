@@ -1,8 +1,8 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Language } from '../../../../../select-language/types/language.interface';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Profile } from '../../../../types/profile';
+import { Profile } from '../../../../types/profile.interface';
 
 @Component({
   selector: 'ks-profile-edit-view',
@@ -16,10 +16,14 @@ export class ProfileEditViewComponent implements OnInit, OnChanges {
   @Input()
   profile: Profile;
 
+  @Output()
+  saveProfile = new EventEmitter<Profile>();
+
   firstName = new FormControl('');
   lastName = new FormControl('');
-  language = new FormControl('');
+  languageId = new FormControl('');
   averageNumberOfHoursPerDay = new FormControl('');
+  image = new FormControl('');
 
   formGroup: FormGroup;
 
@@ -30,16 +34,18 @@ export class ProfileEditViewComponent implements OnInit, OnChanges {
     this.formGroup = new FormGroup({
       firstName: this.firstName,
       lastName: this.lastName,
-      language: this.language,
-      averageHoursPerDay: this.averageNumberOfHoursPerDay
+      languageId: this.languageId,
+      averageNumberOfHoursPerDay: this.averageNumberOfHoursPerDay,
+      image: this.image
     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.firstName.setValue(this.profile.firstName);
     this.lastName.setValue(this.profile.lastName);
-    this.language.setValue(this.profile.languageId);
+    this.languageId.setValue(this.profile.languageId);
     this.averageNumberOfHoursPerDay.setValue(this.profile.averageNumberOfHoursPerDay);
+    this.image.setValue(this.profile.image);
   }
 
   getLanguagesAsOptions() {
@@ -48,6 +54,6 @@ export class ProfileEditViewComponent implements OnInit, OnChanges {
   }
 
   saveChanges() {
-    console.log(this.formGroup.value);
+    this.saveProfile.emit(this.formGroup.value);
   }
 }

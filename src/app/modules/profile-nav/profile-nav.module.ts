@@ -5,13 +5,15 @@ import { YourProfileModule } from '../your-profile/your-profile.module';
 import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
 import { RouterModule } from '@angular/router';
 import { UiModule } from '../ui/ui.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     YourProfileModule,
-    UiModule
+    UiModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     ProfileNavComponent,

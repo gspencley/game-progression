@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LanguageStore } from '../../../../../select-language/store/language.store';
+import { ProfileEditStore } from '../../store/profile-edit.store';
 import { ProfileStore } from '../../../../store/profile.store';
 
 @Component({
@@ -7,6 +8,8 @@ import { ProfileStore } from '../../../../store/profile.store';
   templateUrl: 'profile-edit.component.html'
 })
 export class ProfileEditComponent {
-  constructor(public languageStore: LanguageStore, public profileStore: ProfileStore) {
+  constructor(public languageStore: LanguageStore,
+              public profileStore: ProfileStore,
+              public profileEditStore: ProfileEditStore) {
   }
 }

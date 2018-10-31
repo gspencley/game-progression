@@ -8,6 +8,7 @@
     "GAMES": "Jeux"
   },
   "PROFILE": {
+    "PREFIX": "Le",
     "TITLE": "Votre profil",
     "NAME": "Nom",
     "LANGUAGE": "Langue",

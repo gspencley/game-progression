@@ -1,2 +1,3 @@
 <ks-profile-edit-view [languages]="languageStore.getLanguages()|async"
-                      [profile]="profileStore.getProfile()|async"></ks-profile-edit-view>
+                      [profile]="profileStore.getProfile()|async"
+                      (saveProfile)="profileEditStore.saveChanges($event)"></ks-profile-edit-view>

@@ -1,4 +1,4 @@
-import { LanguageState } from '../types/language.state';
+import { LanguageState } from '../types/language-state.interface';
 import { LanguageAction, LanguageActionTypes, LoadLanguagesSuccess } from './language.actions';
 
 const initialState: LanguageState = {

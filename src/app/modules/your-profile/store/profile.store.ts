@@ -3,10 +3,10 @@ import { AppStore } from '../../../store/app.store';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { AppState } from '../../../types/app-state';
-import { ProfileState } from '../types/profile-state';
-import { InitializeProfile, LoadProfile, UpdateLanguage } from './profile.actions';
+import { ProfileState } from '../types/profile-state.interface';
+import { InitializeProfile, LoadProfile, UpdateLanguage, UpdateProfile } from './profile.actions';
 import { Language } from '../../select-language/types/language.interface';
-import { Profile } from '../types/profile';
+import { Profile } from '../types/profile.interface';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -38,5 +38,9 @@ export class ProfileStore {
 
   updateLanguage(language: Language) {
     this.store.dispatch(new UpdateLanguage(language));
+  }
+
+  updateProfile(profile: Profile) {
+    this.store.dispatch(new UpdateProfile(profile));
   }
 }

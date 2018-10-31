@@ -1,5 +1,5 @@
-import { ProfileState } from '../types/profile-state';
-import { LoadProfileSuccess, ProfileAction, ProfileActionTypes, UpdateLanguage } from './profile.actions';
+import { ProfileState } from '../types/profile-state.interface';
+import { LoadProfileSuccess, ProfileAction, ProfileActionTypes, UpdateLanguage, UpdateProfile } from './profile.actions';
 
 const initialState: ProfileState = {
   profile: {
@@ -9,6 +9,9 @@ const initialState: ProfileState = {
     image: '',
     languageId: 1,
     averageNumberOfHoursPerDay: 0
+  },
+  profileEditState: {
+    error: null
   }
 };
 
@@ -17,6 +20,11 @@ export const profileReducer = (state: ProfileState = initialState, action: Profi
     case ProfileActionTypes.LoadSuccess:
       const loadSuccessAction = action as LoadProfileSuccess;
       return {...state, profile: loadSuccessAction.profile};
+
+    case ProfileActionTypes.Update:
+      const updateAction = action as UpdateProfile;
+      return { ...state, profile: updateAction.profile };
+
     case ProfileActionTypes.UpdateLanguage:
       const updateLanguageAction = action as UpdateLanguage;
       return {
@@ -26,6 +34,7 @@ export const profileReducer = (state: ProfileState = initialState, action: Profi
           languageId: updateLanguageAction.language.id
         }
       };
+
     default:
       return state;
   }

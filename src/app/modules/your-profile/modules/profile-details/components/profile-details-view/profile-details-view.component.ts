@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Profile } from '../../../../types/profile';
+import { Profile } from '../../../../types/profile.interface';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
