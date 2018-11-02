@@ -8,11 +8,11 @@ import { FormControl } from '@angular/forms';
 })
 export class SelectComponent {
   @Input()
-  label: string;
+  public label: string;
 
   @Input()
-  options: string[];
+  public options: string[];
 
   @Input()
-  control: FormControl;
+  public control: FormControl;
 }

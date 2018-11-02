@@ -7,11 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  constructor(private translate: TranslateService) {}
 
-  constructor(private translate: TranslateService) {
-  }
-
-  change(val: string) {
+  public change(val: string) {
     this.translate.use(val);
   }
 }

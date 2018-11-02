@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LanguageCode } from '../../modules/select-language/types/language-code.enum';
+
+import { LanguageCode } from '../../modules/languages/types/language/language-code.enum';
+import { AppStore } from '../../store/app.store';
 
 @Component({
   selector: 'ks-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent {
-  constructor(translate: TranslateService) {
+export class AppComponent implements OnInit {
+
+  constructor(
+    private translate: TranslateService,
+    private appStore: AppStore
+  ) {
     translate.setDefaultLang(LanguageCode.EN);
   }
-}
 
+  public ngOnInit(): void {
+    this.appStore.retrieveLanguagesAndProfile();
+  }
+}

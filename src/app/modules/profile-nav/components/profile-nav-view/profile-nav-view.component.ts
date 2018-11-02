@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Profile } from '../../../your-profile/types/profile.interface';
 import { TranslateService } from '@ngx-translate/core';
+
+import { Profile } from '../../../profile/types/profile/profile.interface';
 
 @Component({
   selector: 'ks-profile-nav-view',
@@ -9,14 +10,13 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ProfileNavViewComponent implements OnChanges {
   @Input()
-  profile: Profile;
+  public profile: Profile;
 
-  image = '';
+  public image = '';
 
-  constructor(public translate: TranslateService) {
-  }
+  constructor(public translate: TranslateService) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(changes: SimpleChanges): void {
     if (this.profile && this.profile.image.length) {
       this.image = `assets/${this.profile.image}`;
     }

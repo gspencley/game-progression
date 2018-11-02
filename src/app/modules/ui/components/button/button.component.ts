@@ -3,15 +3,15 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 @Component({
   selector: 'ks-button',
   templateUrl: 'button.component.html',
-  styleUrls: [ './button.component.scss' ]
+  styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnChanges {
   @Input()
-  type: string;
+  public type: string;
 
-  isAccept: boolean;
+  public isAccept: boolean;
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(changes: SimpleChanges): void {
     this.isAccept = this.type === 'accept';
     console.log(this.type);
   }

@@ -1,7 +1,11 @@
-import { ProfileState } from '../modules/your-profile/types/profile-state.interface';
-import { LanguageState } from '../modules/select-language/types/language-state.interface';
+import { GamesState } from '../features/games/types/games-state/games-state.interface';
+import { ProfileEditState } from '../features/your-profile/modules/profile-edit/types/profile-edit.state.interface';
+import { LanguagesState } from '../modules/languages/types/languages-state/languages-state.interface';
+import { ProfileState } from '../modules/profile/types/profile-state/profile-state.interface';
 
 export interface AppState {
-  readonly languageState: LanguageState;
+  readonly languagesState: LanguagesState;
+  readonly profileEditState: ProfileEditState;
   readonly profileState: ProfileState;
+  readonly gamesState: GamesState;
 }

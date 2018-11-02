@@ -1,25 +1,17 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileNavViewComponent } from './components/profile-nav-view/profile-nav-view.component';
-import { YourProfileModule } from '../your-profile/your-profile.module';
-import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { UiModule } from '../ui/ui.module';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { UiModule } from '../ui/ui.module';
+import { YourProfileModule } from '../../features/your-profile/your-profile.module';
+
+import { ProfileNavViewComponent } from './components/profile-nav-view/profile-nav-view.component';
+import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
+
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    YourProfileModule,
-    UiModule,
-    TranslateModule.forChild()
-  ],
-  declarations: [
-    ProfileNavComponent,
-    ProfileNavViewComponent
-  ],
+  imports: [CommonModule, RouterModule, YourProfileModule, UiModule, TranslateModule.forChild()],
+  declarations: [ProfileNavComponent, ProfileNavViewComponent],
   exports: [ProfileNavComponent]
 })
-export class ProfileNavModule {
-}
+export class ProfileNavModule {}

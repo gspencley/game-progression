@@ -1,16 +1,23 @@
 Backlog:
+	Changing language in edit profile should update translate service and select-language
+
 	Add Game
 
 	Dashboard
-		Display total number of days required to finish all uncompleted games
 		Progress bar to illustrate % complete of incomplete games out of total number
 		Progress bar to illustrate % complete of games out of total number of games
+
 
 	Games
 		Card listing of all game entries
 		Sort by feature
 		Filters feature
 		Delete feature
+
+Doing:
+	Dashboard
+    		Display total number of days required to finish all uncompleted games
+
 
 
 Done:

@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: 'separator.component.html',
   styleUrls: ['./separator.component.scss']
 })
-export class SeparatorComponent {
-
-}
+export class SeparatorComponent {}

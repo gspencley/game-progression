@@ -1,2 +1,1 @@
-export const rootReducer = {
-};
+export const rootReducer = {};

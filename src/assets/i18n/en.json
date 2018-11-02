@@ -6,6 +6,11 @@
     "DASHBOARD": "Dashboard",
     "GAMES": "Games"
   },
+  "DASHBOARD": {
+    "TITLE": "Your Dashboard",
+    "TIME_REMAINING": "Time Remaining",
+    "DAYS": "Days"
+  },
   "PROFILE": {
     "PREFIX": "",
     "TITLE": "Your Profile",

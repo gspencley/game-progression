@@ -7,16 +7,16 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class NavMenuComponent {
   @Input()
-  activeRoute: string;
+  public activeRoute: string;
 
   @Output()
-  navigate = new EventEmitter<string>();
+  public navigate = new EventEmitter<string>();
 
-  doNavigate(route: string) {
+  public doNavigate(route: string) {
     this.navigate.emit(route);
   }
 
-  isActive(route: string) {
+  public isActive(route: string) {
     return route === this.activeRoute;
   }
 }

@@ -1,35 +1,26 @@
-import { NgModule } from '@angular/core';
-import { LanguageStore } from './store/language.store';
-import { TranslateModule } from '@ngx-translate/core';
-import { StoreModule } from '@ngrx/store';
-import { languageReducer } from './store/language.reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { LanguageEffects } from './store/language.effects';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
+
+import { LanguagesModule } from '../languages/languages.module';
+import { ProfileModule } from '../profile/profile.module';
+import { UiModule } from '../ui/ui.module';
+
 import { SelectLanguageViewComponent } from './components/select-language-view/select-language-view.component';
 import { SelectLanguageComponent } from './components/select-language/select-language.component';
-import { UiModule } from '../ui/ui.module';
-import { LanguageService } from './services/language.service';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
     UiModule,
-
+    ProfileModule,
+    LanguagesModule,
     TranslateModule.forChild(),
-
-    StoreModule.forFeature('languageState', languageReducer),
-    EffectsModule.forFeature([LanguageEffects])
   ],
 
-  declarations: [
-    SelectLanguageComponent,
-    SelectLanguageViewComponent
-  ],
-  providers: [LanguageStore, LanguageService],
+  declarations: [SelectLanguageComponent, SelectLanguageViewComponent],
   exports: [SelectLanguageComponent]
 })
-export class SelectLanguageModule {
-}
+export class SelectLanguageModule {}

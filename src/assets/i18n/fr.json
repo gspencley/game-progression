@@ -7,6 +7,9 @@
     "DASHBOARD": "Tableau de bord",
     "GAMES": "Jeux"
   },
+  "DASHBOARD": {
+    "TITLE": "Votre Tableau De Bord"
+  },
   "PROFILE": {
     "PREFIX": "Le",
     "TITLE": "Votre profil",

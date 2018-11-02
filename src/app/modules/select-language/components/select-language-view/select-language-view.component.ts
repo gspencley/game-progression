@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Language } from '../../types/language.interface';
+
+import { Language } from '../../../languages/types/language/language.interface';
 
 @Component({
   selector: 'ks-select-language-view',
@@ -8,23 +9,23 @@ import { Language } from '../../types/language.interface';
 })
 export class SelectLanguageViewComponent {
   @Input()
-  languageId: number;
+  public language: Language;
 
   @Input()
-  languages: Language[];
+  public languages: Language[];
 
   @Output()
-  switchLanguage = new EventEmitter<number>();
+  public switchLanguage = new EventEmitter<number>();
 
-  isSelected(languageId: number) {
-    return languageId === this.languageId;
+  public isSelected(languageId: number) {
+    return this.language !== null && languageId === this.language.id;
   }
 
-  change(languageId: number) {
+  public change(languageId: number) {
     this.switchLanguage.emit(languageId);
   }
 
-  notLastItem(index) {
+  public notLastItem(index) {
     return index < this.languages.length - 1;
   }
 }

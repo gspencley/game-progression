@@ -5,9 +5,12 @@ const routes = [
   {
     path: '',
     children: [
-      {path: 'your-profile', loadChildren: './modules/your-profile/your-profile.module#YourProfileModule'},
-      {path: 'games', loadChildren: './modules/games/games.module#GamesModule'},
-      {path: 'dashboard', loadChildren: './modules/dashboard/dashboard.module#DashboardModule'}
+      {
+        path: 'your-profile',
+        loadChildren: './features/your-profile/your-profile.module#YourProfileModule'
+      },
+      { path: 'games', loadChildren: './features/games/games.module#GamesModule' },
+      { path: 'dashboard', loadChildren: './features/dashboard/dashboard.module#DashboardModule' }
     ]
   }
 ];
@@ -16,5 +19,4 @@ const routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutes {
-}
+export class AppRoutes {}

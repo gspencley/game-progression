@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.styles.scss']
 })
-export class HeaderComponent {
-}
+export class HeaderComponent {}
