@@ -4,13 +4,17 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
 import { Language } from '../types/language/language.interface';
+import { map } from 'rxjs/operators';
+import { LanguageResponse } from '../types/language-response/language-response.interface';
+import { transformLanguageResponseArrayToLanguageArray } from '../types/language/language.functions';
 
 @Injectable()
 export class LanguagesService {
   constructor(private httpClient: HttpClient) {}
 
   public retrieve(): Observable<Language[]> {
-    console.log('LanguagesServices.retrieve()');
-    return this.httpClient.get<Language[]>(`${environment.APIEndpoint}/languages`);
+    return this.httpClient.get<LanguageResponse[]>(`${environment.APIEndpoint}/languages`).pipe(
+      map((languages: LanguageResponse[]) => transformLanguageResponseArrayToLanguageArray(languages))
+    );
   }
 }

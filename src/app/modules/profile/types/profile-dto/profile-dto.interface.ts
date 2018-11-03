@@ -1,8 +1,8 @@
-export interface ProfileResponse {
-  id: number;
+export interface ProfileDto {
+  id: number|string;
   firstName: string;
   lastName: string;
-  languageId: number;
+  languageId: number|string;
   averageNumberOfHoursPerDay: number;
   image: string;
 }

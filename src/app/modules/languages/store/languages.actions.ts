@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+
 import { Language } from '../types/language/language.interface';
 
 export const LanguagesActions = {
@@ -8,9 +9,10 @@ export const LanguagesActions = {
 
 export class Retrieve implements Action {
   public readonly type = LanguagesActions.RETRIEVE;
+  constructor(public onSuccess: Action=null) {}
 }
 
 export class RetrieveSuccess implements Action {
   public readonly type = LanguagesActions.RETRIEVE_SUCCESS;
-  constructor(public languages: Language[]) {}
+  constructor(public languages: Language[], public dispatchNext: Action = null) {}
 }

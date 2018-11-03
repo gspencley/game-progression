@@ -14,10 +14,10 @@ export class AppComponent implements OnInit {
     private translate: TranslateService,
     private appStore: AppStore
   ) {
-    translate.setDefaultLang(LanguageCode.EN);
   }
 
   public ngOnInit(): void {
-    this.appStore.retrieveLanguagesAndProfile();
+    this.translate.setDefaultLang(LanguageCode.EN);
+    this.appStore.initialize();
   }
 }

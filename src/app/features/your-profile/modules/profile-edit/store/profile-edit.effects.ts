@@ -5,6 +5,7 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 import { ProfileStore } from '../../../../../modules/profile/store/profile.store';
+import { ProfileDto } from '../../../../../modules/profile/types/profile-dto/profile-dto.interface';
 import { Profile } from '../../../../../modules/profile/types/profile/profile.interface';
 import { ProfileEditService } from '../services/profile-edit.service';
 
@@ -26,10 +27,10 @@ export class ProfileEditEffects {
   @Effect()
   public saveChanges = this.actions$.pipe(
     ofType(ProfileEditActionTypes.Save),
-    map((action: SaveProfileChanges) => action.profile),
-    switchMap((profile: Profile) =>
-      this.profileEditService.updateProfile(profile).pipe(
-        map(() => new SaveProfileChangesSuccess(profile)),
+    map((action: SaveProfileChanges) => action.profileDto),
+    switchMap((profileDto: ProfileDto) =>
+      this.profileEditService.updateProfile(profileDto).pipe(
+        map((profile: Profile) => new SaveProfileChangesSuccess(profile)),
         catchError((error: HttpErrorResponse) => of(new SaveProfileChangesError(error)))
       )
     )

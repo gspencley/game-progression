@@ -8,7 +8,7 @@ import { Language } from '../../languages/types/language/language.interface';
 import { ProfileService } from '../services/profile.service';
 import { Profile } from '../types/profile/profile.interface';
 
-import { ProfileActions, RetrieveSuccess, UpdateLanguage } from './profile.actions';
+import { ProfileActions, Retrieve, RetrieveSuccess, UpdateLanguage } from './profile.actions';
 
 @Injectable()
 export class ProfileEffects {
@@ -22,10 +22,10 @@ export class ProfileEffects {
   @Effect()
   private retrieveProfile$ = this.actions$.pipe(
     ofType(ProfileActions.RETRIEVE),
-    withLatestFrom(this.languagesStore.getLanguages()),
-    map(([action, languages]) => languages),
-    switchMap((languages) => this.profileService.getProfile(languages).pipe(
-      map((profile: Profile) => new RetrieveSuccess(profile))
+    map((action: Retrieve) => action.loadLanguages),
+    switchMap((loadLanguages: boolean) =>
+      this.profileService.getProfile(loadLanguages).pipe(
+        map((profile: Profile) => new RetrieveSuccess(profile))
     ))
   );
 

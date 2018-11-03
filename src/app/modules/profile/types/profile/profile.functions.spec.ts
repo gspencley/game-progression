@@ -1,15 +1,38 @@
-import { Profile } from './profile.interface';
+import { Language } from '../../../languages/types/language/language.interface';
+import { ProfileDto } from '../profile-dto/profile-dto.interface';
 
-describe('ProfileState', () => {
-  let profile: Profile;
+import { transformProfileDtoToProfile } from './profile.functions';
 
-  describe('when the Profile is in a certain state', () => {
+describe('Profile Functions', () => {
+  describe('transformProfileDtoToProfile', () => {
+
+    let languages: Language[] = [];
+
     beforeEach(() => {
-      profile = {} as Profile;
+      languages = [
+        {id: 1, name: 'English', code: 'EN'},
+        {id: 2, name: 'French', code: 'FR'}
+      ];
     });
 
-    it('should be true', () => {
-      expect(profile).toEqual({} as Profile);
+    it('should return a mapped Profile object', () => {
+      const profileData = {
+        id: 1,
+        firstName: 'Garett',
+        lastName: 'Spencley',
+        image: 'sexiest-man-alive',
+        averageNumberOfHoursPerDay: 1
+      };
+
+      const profileDto: ProfileDto = {
+        ...profileData,
+        languageId: 2
+      };
+
+      expect(transformProfileDtoToProfile(profileDto, languages)).toEqual({
+        ...profileData,
+        language: languages[1]
+      });
     });
   });
 });

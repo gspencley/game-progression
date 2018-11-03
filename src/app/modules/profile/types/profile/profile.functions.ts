@@ -1,6 +1,7 @@
-import { getLanguageById } from '../../../languages/types/language/language.functions';
+import { Integer } from '../../../../types/integer/integer.functions';
+import { createLanguage, getLanguageById } from '../../../languages/types/language/language.functions';
 import { Language } from '../../../languages/types/language/language.interface';
-import { ProfileResponse } from '../profile-response/profile-response.interface';
+import { ProfileDto } from '../profile-dto/profile-dto.interface';
 
 import { Profile } from './profile.interface';
 
@@ -10,19 +11,22 @@ export function createProfile(): Profile {
       firstName: '',
       lastName: '',
       image: '',
-      language: null,
+      language: createLanguage(),
       averageNumberOfHoursPerDay: 0
     }
 }
 
-export function transformProfileResponse(profileResponse: ProfileResponse, languages: Language[]): Profile {
-  console.log(languages);
-  return {
-    id: profileResponse.id,
+export function transformProfileDtoToProfile(profileResponse: ProfileDto, languages: Language[]=[]): Profile {
+  console.log(profileResponse);
+
+  const result = {
+    id: Integer(profileResponse.id),
     firstName: profileResponse.firstName,
     lastName: profileResponse.lastName,
-    language: getLanguageById(profileResponse.id, languages),
+    language: getLanguageById(Integer(profileResponse.languageId), languages),
     image: profileResponse.image,
     averageNumberOfHoursPerDay: profileResponse.averageNumberOfHoursPerDay
   };
+  console.log(result);
+  return result;
 }

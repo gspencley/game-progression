@@ -11,7 +11,6 @@ export function languagesReducer(
 ): LanguagesState {
   switch (action.type) {
     case LanguagesActions.RETRIEVE_SUCCESS:
-      console.log('RETRIEVE_SUCCESS');
       const successAction = action as RetrieveSuccess;
       return {
         ...state,

@@ -1,3 +1,6 @@
+import { Integer } from '../../../../types/integer/integer.functions';
+import { LanguageResponse } from '../language-response/language-response.interface';
+
 import { Language } from './language.interface';
 
 export function createLanguage(): Language {
@@ -5,19 +8,36 @@ export function createLanguage(): Language {
     id: 0,
     name: '',
     code: ''
-  }
+  };
 }
 
 export function getLanguageById(id: number, languages: Language[]): Language {
+  console.log(id);
 
-  if(languages.length === 0) {
-    return null;
+  if(languages.length > 0) {
+    const filtered = languages.filter((language) => language.id === id);
+    if(filtered.length === 0) {
+      return null;
+    }
+
+    return filtered[0];
   }
 
-  const filtered = languages.filter((language) => language.id === id);
-  if(filtered.length === 0) {
-    return null;
-  }
+  return null;
+}
 
-  return filtered[0];
+export function transformLanguageResponseArrayToLanguageArray(response: LanguageResponse[]) {
+  return response.map((item) => transformLanguageResponseToLanguage(item));
+}
+
+/*
+ * Helpers
+ */
+
+function transformLanguageResponseToLanguage(response: LanguageResponse) {
+  return {
+    id: Integer(response.id),
+    code: response.code,
+    name: response.name
+  };
 }

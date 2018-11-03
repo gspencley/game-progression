@@ -28,11 +28,12 @@ export class ProfileEditViewComponent implements OnInit, OnChanges {
   @Output()
   public saveProfile = new EventEmitter<Profile>();
 
-  public firstName = new FormControl('');
-  public lastName = new FormControl('');
-  public languageId = new FormControl('');
+  public id           = new FormControl('');
+  public firstName    = new FormControl('');
+  public lastName     = new FormControl('');
+  public languageId   = new FormControl('');
+  public image        = new FormControl('');
   public averageNumberOfHoursPerDay = new FormControl('');
-  public image = new FormControl('');
 
   public formGroup: FormGroup;
 
@@ -40,6 +41,7 @@ export class ProfileEditViewComponent implements OnInit, OnChanges {
 
   public ngOnInit(): void {
     this.formGroup = new FormGroup({
+      id: this.id,
       firstName: this.firstName,
       lastName: this.lastName,
       languageId: this.languageId,
@@ -49,11 +51,12 @@ export class ProfileEditViewComponent implements OnInit, OnChanges {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
+    this.id.setValue(this.profile.id);
     this.firstName.setValue(this.profile.firstName);
     this.lastName.setValue(this.profile.lastName);
     this.languageId.setValue(this.profile.language.id);
-    this.averageNumberOfHoursPerDay.setValue(this.profile.averageNumberOfHoursPerDay);
     this.image.setValue(this.profile.image);
+    this.averageNumberOfHoursPerDay.setValue(this.profile.averageNumberOfHoursPerDay);
   }
 
   public getLanguagesAsOptions() {

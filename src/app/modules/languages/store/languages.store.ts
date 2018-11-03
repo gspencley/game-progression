@@ -8,7 +8,7 @@ import { AppState } from '../../../types/app-state';
 import { Language } from '../types/language/language.interface';
 import { LanguagesState } from '../types/languages-state/languages-state.interface';
 
-import { Retrieve, RetrieveSuccess } from './languages.actions';
+import { Retrieve } from './languages.actions';
 
 @Injectable()
 export class LanguagesStore {
@@ -22,17 +22,7 @@ export class LanguagesStore {
     return this.getLanguagesState().pipe(map(state => state.languages));
   }
 
-  public isLoaded(): Observable<boolean> {
-    return this.getLanguages().pipe(
-      map((languages: Language[]) => languages.length > 1)
-    );
-  }
-
-  public setLanguages(languages: Language[]) {
-    this.store.dispatch(new RetrieveSuccess(languages));
-  }
-
   public retrieve() {
-    this.store.dispatch(new Retrieve());
+    return this.store.dispatch(new Retrieve());
   }
 }

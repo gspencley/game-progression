@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { Profile } from '../../../../../modules/profile/types/profile/profile.interface';
+import { ProfileDto } from '../../../../../modules/profile/types/profile-dto/profile-dto.interface';
 import { AppState } from '../../../../../types/app-state';
 
 import { SaveProfileChanges } from './profile-edit.actions';
@@ -10,7 +10,7 @@ import { SaveProfileChanges } from './profile-edit.actions';
 export class ProfileEditStore {
   constructor(private store: Store<AppState>) {}
 
-  public saveChanges(profile: Profile) {
-    return this.store.dispatch(new SaveProfileChanges(profile));
+  public saveChanges(profileDto: ProfileDto) {
+    return this.store.dispatch(new SaveProfileChanges(profileDto));
   }
 }

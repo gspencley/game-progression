@@ -19,7 +19,6 @@ Doing:
     		Display total number of days required to finish all uncompleted games
 
 
-
 Done:
 	Language Selection
 	Layout

@@ -13,6 +13,5 @@ export class ButtonComponent implements OnChanges {
 
   public ngOnChanges(changes: SimpleChanges): void {
     this.isAccept = this.type === 'accept';
-    console.log(this.type);
   }
 }

@@ -1,5 +1,5 @@
 <ks-select-language-view
-        [language]="profileStore.getLanguage()|async"
+        [profile]="profileStore.getProfile()|async"
         [languages]="languagesStore.getLanguages()|async"
         (switchLanguage)="profileStore.updateLanguage($event)">
 </ks-select-language-view>
