@@ -10,7 +10,7 @@ import { Profile } from '../../../../../modules/profile/types/profile/profile.in
 import { ProfileEditService } from '../services/profile-edit.service';
 
 import {
-  ProfileEditActionTypes,
+  ProfileEditActions,
   SaveProfileChanges,
   SaveProfileChangesError,
   SaveProfileChangesSuccess
@@ -26,7 +26,7 @@ export class ProfileEditEffects {
 
   @Effect()
   public saveChanges = this.actions$.pipe(
-    ofType(ProfileEditActionTypes.Save),
+    ofType(ProfileEditActions.SAVE),
     map((action: SaveProfileChanges) => action.profileDto),
     switchMap((profileDto: ProfileDto) =>
       this.profileEditService.updateProfile(profileDto).pipe(
@@ -38,7 +38,7 @@ export class ProfileEditEffects {
 
   @Effect({ dispatch: false })
   public saveChangesSuccess = this.actions$.pipe(
-    ofType(ProfileEditActionTypes.SaveSuccess),
+    ofType(ProfileEditActions.SAVE_SUCCESS),
     map((action: SaveProfileChangesSuccess) => action.profile),
     tap((profile: Profile) => this.profileStore.updateProfile(profile))
   );
