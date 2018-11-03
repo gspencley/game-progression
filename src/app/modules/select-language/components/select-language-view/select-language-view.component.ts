@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 import { Language } from '../../../languages/types/language/language.interface';
 import { Profile } from '../../../profile/types/profile/profile.interface';
@@ -8,7 +8,9 @@ import { Profile } from '../../../profile/types/profile/profile.interface';
   templateUrl: './select-language-view.component.html',
   styleUrls: ['./select-language-view.styles.scss']
 })
-export class SelectLanguageViewComponent {
+export class SelectLanguageViewComponent implements OnChanges {
+  public languageSelected = [];
+
   @Input()
   public profile: Profile;
 
@@ -18,8 +20,10 @@ export class SelectLanguageViewComponent {
   @Output()
   public switchLanguage = new EventEmitter<number>();
 
-  public isSelected(languageId: number) {
-    return this.profile.language !== null && this.profile.language.id === languageId;
+  public ngOnChanges(changes: SimpleChanges): void {
+    this.languages.forEach((language) => {
+      this.languageSelected[language.id] = this.isSelected(language.id);
+    });
   }
 
   public change(languageId: number) {
@@ -28,5 +32,13 @@ export class SelectLanguageViewComponent {
 
   public notLastItem(index) {
     return index < this.languages.length - 1;
+  }
+
+  /*
+   * Helpers
+   */
+
+  private isSelected(languageId: number) {
+    return this.profile.language !== null && this.profile.language.id === languageId;
   }
 }

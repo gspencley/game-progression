@@ -14,4 +14,10 @@ button {
   &.accept {
     background-color: $green;
   }
+
+  &.disabled {
+    background-color: $gray;
+    cursor: not-allowed;
+    color: $light-text;
+  }
 }

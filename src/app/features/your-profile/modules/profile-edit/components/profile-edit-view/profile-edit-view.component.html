@@ -1,4 +1,4 @@
-<ks-profile-edit-menu (saveChanges)="saveChanges()"></ks-profile-edit-menu>
+<ks-profile-edit-menu [isSaving]="isSaving" (saveChanges)="saveChanges()"></ks-profile-edit-menu>
 
 <ks-card>
     <ks-input [label]="'PROFILE.FIRST_NAME'|translate" [control]="firstName"></ks-input>

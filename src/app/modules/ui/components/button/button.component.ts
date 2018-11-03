@@ -9,6 +9,9 @@ export class ButtonComponent implements OnChanges {
   @Input()
   public type: string;
 
+  @Input()
+  public disabled: boolean;
+
   public isAccept: boolean;
 
   public ngOnChanges(changes: SimpleChanges): void {

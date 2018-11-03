@@ -10,9 +10,15 @@ export const profileEditReducer = (
   action: Action
 ) => {
   switch (action.type) {
+    case ProfileEditActions.SAVE:
+      return { ...state, isSaving: true };
+
+    case ProfileEditActions.SAVE_SUCCESS:
+      return { ...state, isSaving: false };
+
     case ProfileEditActions.SAVE_ERROR:
       const errorAction = action as SaveProfileChangesError;
-      return { ...state, error: errorAction.error };
+      return { ...state, isSaving: false, error: errorAction.error };
     default:
       return state;
   }

@@ -17,9 +17,7 @@ export function createProfile(): Profile {
 }
 
 export function transformProfileDtoToProfile(profileResponse: ProfileDto, languages: Language[]=[]): Profile {
-  console.log(profileResponse);
-
-  const result = {
+  return {
     id: Integer(profileResponse.id),
     firstName: profileResponse.firstName,
     lastName: profileResponse.lastName,
@@ -27,6 +25,4 @@ export function transformProfileDtoToProfile(profileResponse: ProfileDto, langua
     image: profileResponse.image,
     averageNumberOfHoursPerDay: profileResponse.averageNumberOfHoursPerDay
   };
-  console.log(result);
-  return result;
 }

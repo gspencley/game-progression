@@ -12,8 +12,6 @@ export function createLanguage(): Language {
 }
 
 export function getLanguageById(id: number, languages: Language[]): Language {
-  console.log(id);
-
   if(languages.length > 0) {
     const filtered = languages.filter((language) => language.id === id);
     if(filtered.length === 0) {

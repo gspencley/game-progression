@@ -10,16 +10,10 @@ export function profileReducer(
   action: Action
 ): ProfileState {
   switch (action.type) {
-    case ProfileActions.RETRIEVE:
-      return state;
-
     case ProfileActions.RETRIEVE_SUCCESS:
-      const successAction = action as RetrieveSuccess;
-      return { ...state, profile: successAction.profile };
-
     case ProfileActions.UPDATE:
-      const updateAction = action as Update;
-      return { ...state, profile: updateAction.profile };
+      const updateProfileAction = action as RetrieveSuccess | Update;
+      return { ...state, profile: updateProfileAction.profile };
 
     case ProfileActions.UPDATE_LANGUAGE:
       const updateLanguageAction = action as UpdateLanguage;

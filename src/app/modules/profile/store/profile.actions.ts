@@ -13,11 +13,12 @@ export const ProfileActions = {
 
 export class Retrieve implements Action {
   public readonly type = ProfileActions.RETRIEVE;
+  constructor(public onSuccess: Action = null) {}
 }
 
 export class RetrieveSuccess implements Action {
   public readonly type = ProfileActions.RETRIEVE_SUCCESS;
-  constructor(public profile: Profile) {}
+  constructor(public profile: Profile, public onSuccess: Action=null) {}
 }
 
 export class UpdateLanguage implements Action {

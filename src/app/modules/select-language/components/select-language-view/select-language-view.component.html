@@ -1,5 +1,5 @@
 <span *ngFor="let language of languages; let i = index">
-    <ks-link [class.active]="isSelected(language.id)"
+    <ks-link [class.active]="languageSelected[language.id]"
              (click)="change(language)">{{language.name}}</ks-link>
     <ks-separator *ngIf="notLastItem(i)"></ks-separator>
 </span>

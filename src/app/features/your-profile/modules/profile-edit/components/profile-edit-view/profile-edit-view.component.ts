@@ -20,6 +20,9 @@ import { Profile } from '../../../../../../modules/profile/types/profile/profile
 })
 export class ProfileEditViewComponent implements OnInit, OnChanges {
   @Input()
+  public isSaving: boolean;
+
+  @Input()
   public languages: Language[];
 
   @Input()

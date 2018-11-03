@@ -17,7 +17,7 @@ export class ProfileService {
     private languagesStore: LanguagesStore) {
   }
 
-  public getProfile(loadLanguages: boolean): Observable<Profile> {
+  public getProfile(): Observable<Profile> {
     return this.transformProfileDtoResponseToProfile(
       this.httpClient.get<ProfileDto>(`${environment.APIEndpoint}/profile`)
     );
