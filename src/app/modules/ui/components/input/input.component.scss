@@ -8,4 +8,11 @@
 input {
   @extend .f2;
   @extend .input-select;
+  border: solid 1px $light-text;
+
+  &:focus {
+    border: solid 1px $dark-blue;
+    box-shadow: 1px 1px 6px 1px $light-text;
+  }
 }
+

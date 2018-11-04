@@ -3,11 +3,14 @@ import { ofType, Actions, Effect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 
+import { Retrieve as RetrieveGames } from '../modules/games-db/store/games-db.actions'
 import { Retrieve as RetrieveLanguages, UseLanguage } from '../modules/languages/store/languages.actions';
+import { Retrieve as RetrievePlatforms } from '../modules/platforms/store/platforms.actions';
 import { Retrieve as RetrieveProfile } from '../modules/profile/store/profile.actions';
 
-import { AppActions, InitializeLanguages, InitializeProfile, UseProfileLanguage } from './app.actions';
 import { ProfileStore } from '../modules/profile/store/profile.store';
+
+import { AppActions, InitializeLanguages, InitializePlatforms, InitializeProfile, UseProfileLanguage } from './app.actions';
 
 @Injectable()
 export class AppEffects {
@@ -19,7 +22,13 @@ export class AppEffects {
   @Effect()
   private initialize$ = this.actions$.pipe(
     ofType(AppActions.INITIALIZE),
-    switchMap(() => of(new InitializeLanguages()))
+    switchMap(() => [ new InitializeLanguages(), new InitializePlatforms() ])
+  );
+
+  @Effect()
+  private intiializePlatforms = this.actions$.pipe(
+    ofType(AppActions.INITIALIZE_PLATFORMS),
+    switchMap(() => of(new RetrievePlatforms(new RetrieveGames())))
   );
 
   @Effect()

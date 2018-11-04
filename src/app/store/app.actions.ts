@@ -4,7 +4,9 @@ export const AppActions  = {
   INITIALIZE:           'APP--INITIALIZE',
   INITIALIZE_LANGUAGES: 'APP--RETRIEVE-LANGUAGES',
   INITIALIZE_PROFILE:   'APP--INITIALIZE-PROFILE',
-  USE_PROFILE_LANGUAGE: 'APP--USE-PROFILE_LANGUAGE'
+  USE_PROFILE_LANGUAGE: 'APP--USE-PROFILE_LANGUAGE',
+
+  INITIALIZE_PLATFORMS: 'APP--INITIALIZE_PLATFORMS'
 };
 
 export class Initialize implements Action {
@@ -21,4 +23,8 @@ export class InitializeProfile implements Action {
 
 export class UseProfileLanguage implements Action {
   public readonly type = AppActions.USE_PROFILE_LANGUAGE;
+}
+
+export class InitializePlatforms {
+  public readonly type = AppActions.INITIALIZE_PLATFORMS;
 }

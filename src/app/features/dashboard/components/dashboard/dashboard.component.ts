@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { DashboardService } from '../services/dashboard.service';
 
 @Component({
   selector: 'ks-dashboard',
@@ -7,7 +7,5 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  public daysRemaining = 10;
-
-  constructor(public translateService: TranslateService) {}
+  constructor(public dashboardService: DashboardService) {}
 }

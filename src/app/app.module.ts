@@ -14,14 +14,16 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { GamesDbModule } from './modules/games-db/games-db.module';
 import { LanguagesModule } from './modules/languages/languages.module';
+import { PlatformsModule } from './modules/platforms/platforms.module';
 import { ProfileNavModule } from './modules/profile-nav/profile-nav.module';
 import { ProfileModule } from './modules/profile/profile.module';
 import { SelectLanguageModule } from './modules/select-language/select-language.module';
 import { UiModule } from './modules/ui/ui.module';
+import { AppEffects } from './store/app.effects';
 import { AppStore } from './store/app.store';
 import { rootReducer } from './store/root-reducer';
-import { AppEffects } from './store/app.effects';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -60,9 +62,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     StoreModule.forRoot(rootReducer),
     EffectsModule.forRoot([AppEffects]),
     ProfileModule,
-    LanguagesModule
+    LanguagesModule,
+    PlatformsModule,
+    GamesDbModule
   ],
-  providers: [AppStore ],
+  providers: [AppStore],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
