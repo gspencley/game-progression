@@ -5,7 +5,7 @@ import { MatDialogModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { DismissIconComponent, MessageComponent } from './components';
+import { DismissIconComponent, MessageComponent, ProgressBarComponent } from './components';
 import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { InputComponent } from './components/input/input.component';
@@ -39,7 +39,8 @@ const MaterialModules = [MatDialogModule];
     SelectComponent,
     SeparatorComponent,
     MessageComponent,
-    DismissIconComponent
+    DismissIconComponent,
+    ProgressBarComponent
   ],
   exports: [
     ...MaterialModules,
@@ -52,7 +53,8 @@ const MaterialModules = [MatDialogModule];
     MenuControlsComponent,
     MessageComponent,
     SelectComponent,
-    SeparatorComponent
+    SeparatorComponent,
+    ProgressBarComponent
   ]
 })
 export class UiModule {}

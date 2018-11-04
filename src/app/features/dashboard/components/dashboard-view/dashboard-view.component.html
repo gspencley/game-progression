@@ -1,5 +1,10 @@
 <ks-menu [title]="'DASHBOARD.TITLE'|translate"></ks-menu>
 
 <ks-card>
-    <h3>{{'DASHBOARD.TIME_REMAINING'|translate}}: </h3> {{timeRemaining|hoursToHuman}}
+    <div><h3>{{'DASHBOARD.TIME_REMAINING'|translate}}: </h3> {{timeRemaining|hoursToDays}} {{'DASHBOARD.DAYS'|translate}}</div>
+    <div><h3>Number of Unfinished Games:</h3> {{numberOfUnFinishedGames}}</div>
+    <ks-progress-bar [percent]="percentOfUnFinished" [colorScheme]="'red'"></ks-progress-bar>
+
+    <div><h3>Number of Finished Games:</h3> {{numberOfFinishedGames}}</div>
+    <ks-progress-bar [percent]="percentOfFinished"></ks-progress-bar>
 </ks-card>

@@ -1,7 +1,13 @@
 import { Platform } from '../../../platforms/types/platform/platform.interface';
 import { GameResponse } from '../game-response/game-response.interface';
 
-import { getTotalNumberOfHoursToComplete, transformGameResponseArrayToGames, transformGameResponseToGame } from './game.functions';
+import {
+  getNumberOfFinishedGames,
+  getNumberOfUnfinishedGames,
+  getTotalNumberOfHoursToComplete,
+  transformGameResponseArrayToGames,
+  transformGameResponseToGame
+} from './game.functions';
 import { Game } from './game.interface';
 
 describe('Game Functions', () => {
@@ -68,6 +74,31 @@ describe('Game Functions', () => {
       ];
 
       expect(getTotalNumberOfHoursToComplete(games as Game[])).toBe(44);
+    });
+  });
+
+  describe('getNumberOf Functions', () => {
+    let games = [];
+
+    beforeEach(() => {
+      games = [
+        { ...gameData, id: 1, isComplete: true },
+        { ...gameData, id: 2, isComplete: false },
+        { ...gameData, id: 3, isComplete: true },
+        { ...gameData, id: 4, isComplete: true }
+      ];
+    });
+
+    describe('getNumberOfUnfinishedGames', () => {
+      it('Should return number of unfinished games', () => {
+        expect(getNumberOfUnfinishedGames(games as Game[])).toBe(1);
+      });
+    });
+
+    describe('getNumberOfFinishedGames', () => {
+      it('Should return number of finished games', () => {
+        expect(getNumberOfFinishedGames(games as Game[])).toBe(3);
+      });
     });
   });
 });

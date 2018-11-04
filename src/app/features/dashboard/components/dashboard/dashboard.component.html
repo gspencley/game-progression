@@ -1,1 +1,5 @@
-<ks-dashboard-view [timeRemaining]="dashboardService.getHoursRemaining()|async"></ks-dashboard-view>
+<ks-dashboard-view [timeRemaining]="dashboardService.getHoursRemaining()|async"
+                   [numberOfFinishedGames]="dashboardService.getNumerOfFinishedGames()|async"
+                   [numberOfUnFinishedGames]="dashboardService.getNumberOfUnfinishedGames()|async"
+                   [totalNumberOfGames]="dashboardService.getTotalNumberOfGames()|async"
+></ks-dashboard-view>

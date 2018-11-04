@@ -8,10 +8,10 @@ import { DashboardViewComponent } from './components';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardService } from './components/services/dashboard.service';
 import { DashboardRoutesModule } from './dashboard-routes.module';
-import { HoursToHumanPipe } from './pipes/hours-to-human/hours-to-human.pipe';
+import { HoursToDaysPipe } from './pipes/hours-to-days/hours-to-days.pipe';
 
 @NgModule({
-  declarations: [DashboardComponent, DashboardViewComponent, HoursToHumanPipe],
+  declarations: [DashboardComponent, DashboardViewComponent, HoursToDaysPipe],
   imports: [
     DashboardRoutesModule,
     TranslateModule.forChild(),

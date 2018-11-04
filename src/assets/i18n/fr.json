@@ -8,7 +8,8 @@
     "GAMES": "Jeux"
   },
   "DASHBOARD": {
-    "TITLE": "Votre Tableau De Bord"
+    "TITLE": "Votre Tableau De Bord",
+    "DAYS": "Journées"
   },
   "PROFILE": {
     "PREFIX": "Le",

@@ -24,7 +24,13 @@ export function transformGameResponseToGame(response: GameResponse, platforms: P
 }
 
 export function getTotalNumberOfHoursToComplete(games: Game[]): number {
-  return games.reduce((val, game) => {
-    return val + game.numberOfHoursToComplete
-  }, 0);
+  return games.reduce((val, game) =>  val + game.numberOfHoursToComplete, 0);
+}
+
+export function getNumberOfUnfinishedGames(games: Game[]): number {
+  return games.reduce((val, game) => game.isComplete === false ? val + 1 : val, 0);
+}
+
+export function getNumberOfFinishedGames(games: Game[]): number {
+  return games.reduce((val, game) => game.isComplete ? val + 1 : val, 0);
 }

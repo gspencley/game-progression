@@ -1,0 +1,21 @@
+@import "~src/styles/colors";
+
+div {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  background-color: $light-green;
+
+  & > div {
+    background-color: $green;
+    min-height: 50px;
+  }
+}
+
+.red {
+  background-color: $light-red;
+
+  & > div {
+    background-color: red;
+  }
+}
