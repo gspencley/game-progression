@@ -25,5 +25,9 @@
     "EDIT": "Edit",
     "SAVE": "Save",
     "CANCEL": "Cancel"
+  },
+  "MESSAGES": {
+    "ERROR": "Oh Shit Balls :(",
+    "SUCCESS": "YESSSSSS!!!!!"
   }
 }

@@ -1,13 +1,14 @@
 import { Integer } from '../../../../types/integer/integer.functions';
 import { LanguageResponse } from '../language-response/language-response.interface';
 
+import { LanguageCode } from './language-code.enum';
 import { Language } from './language.interface';
 
 export function createLanguage(): Language {
   return {
     id: 0,
     name: '',
-    code: ''
+    code: '' as LanguageCode
   };
 }
 

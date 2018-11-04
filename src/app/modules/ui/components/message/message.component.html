@@ -1,0 +1,12 @@
+<ks-card *ngIf="notDismissed">
+    <ks-row space-between>
+        <div>
+            <h3 [ngSwitch]="type">
+                <span *ngSwitchCase="'error'">{{'MESSAGES.ERROR'|translate}}</span>
+                <span *ngSwitchCase="'success'">{{'MESSAGES.SUCCESS'|translate}}</span>
+            </h3>: {{message}}
+        </div>
+
+        <ks-dismiss-icon (click)="dismiss()"></ks-dismiss-icon>
+    </ks-row>
+</ks-card>

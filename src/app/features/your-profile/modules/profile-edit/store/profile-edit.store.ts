@@ -6,7 +6,7 @@ import { ProfileDto } from '../../../../../modules/profile/types/profile-dto/pro
 import { AppStore } from '../../../../../store/app.store';
 import { AppState } from '../../../../../types/app-state';
 
-import { SaveProfileChanges } from './profile-edit.actions';
+import { Cancel, SaveProfileChanges } from './profile-edit.actions';
 
 @Injectable()
 export class ProfileEditStore {
@@ -19,11 +19,19 @@ export class ProfileEditStore {
     return this.appStore.getAppState().pipe(map(state => state.profileEditState));
   }
 
-  public isSaving() {
-    return this.getProfileEditState().pipe(map(state => state.isSaving));
+  public getProfileSaveState() {
+    return this.getProfileEditState().pipe(map(state => state.profileSaveState));
+  }
+
+  public getError() {
+    return this.getProfileEditState().pipe(map(state => state.error));
   }
 
   public saveChanges(profileDto: ProfileDto) {
     return this.store.dispatch(new SaveProfileChanges(profileDto));
+  }
+
+  public cancel() {
+    return this.store.dispatch(new Cancel());
   }
 }

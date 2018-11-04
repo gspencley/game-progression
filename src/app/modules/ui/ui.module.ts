@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
+import { DismissIconComponent, MessageComponent } from './components';
 import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { InputComponent } from './components/input/input.component';
@@ -18,7 +20,13 @@ import { SeparatorComponent } from './components/separator/separator.component';
 const MaterialModules = [MatDialogModule];
 
 @NgModule({
-  imports: [...MaterialModules, CommonModule, RouterModule, ReactiveFormsModule],
+  imports: [
+    ...MaterialModules,
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    TranslateModule.forChild()
+  ],
   declarations: [
     LabelComponent,
     CardComponent,
@@ -29,7 +37,9 @@ const MaterialModules = [MatDialogModule];
     MenuComponent,
     MenuControlsComponent,
     SelectComponent,
-    SeparatorComponent
+    SeparatorComponent,
+    MessageComponent,
+    DismissIconComponent
   ],
   exports: [
     ...MaterialModules,
@@ -40,6 +50,7 @@ const MaterialModules = [MatDialogModule];
     InputComponent,
     MenuComponent,
     MenuControlsComponent,
+    MessageComponent,
     SelectComponent,
     SeparatorComponent
   ]

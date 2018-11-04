@@ -13,6 +13,10 @@ export class ProfileEditComponent {
     public languagesStore: LanguagesStore,
     public profileStore: ProfileStore,
     public profileEditStore: ProfileEditStore
-  ) {}
+  ) {
+  }
 
+  public onCancel() {
+    this.profileEditStore.cancel();
+  }
 }

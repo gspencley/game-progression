@@ -10,12 +10,23 @@ export class ProfileEditMenuComponent {
   @Output()
   public saveChanges = new EventEmitter<boolean>();
 
+  @Output()
+  public cancel = new EventEmitter<boolean>();
+
   @Input()
   public isSaving: boolean;
 
   constructor(public translate: TranslateService) {}
 
-  public save() {
+  public onCancel() {
+    this.cancel.emit(true);
+  }
+
+  public onSave() {
+    if(this.isSaving === true) {
+      return;
+    }
+
     this.saveChanges.emit(true);
   }
 }

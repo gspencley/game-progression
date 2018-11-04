@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ofType, Actions, Effect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, delay, map, switchMap, tap } from 'rxjs/operators';
@@ -22,7 +23,8 @@ export class ProfileEditEffects {
   constructor(
     private profileStore: ProfileStore,
     private profileEditService: ProfileEditService,
-    private actions$: Actions
+    private actions$: Actions,
+    private router: Router
   ) {}
 
   @Effect()
@@ -43,4 +45,10 @@ export class ProfileEditEffects {
     map((action: SaveProfileChangesSuccess) => action.profile),
     switchMap((profile: Profile) => of(new Update(profile)))
   );
+
+  @Effect({dispatch: false})
+  public cancel$ = this.actions$.pipe(
+    ofType(ProfileEditActions.CANCEL),
+    tap(() => { this.router.navigate(['/your-profile/details']); })
+  )
 }

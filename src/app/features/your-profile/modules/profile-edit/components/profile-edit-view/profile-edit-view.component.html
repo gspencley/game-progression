@@ -1,4 +1,10 @@
-<ks-profile-edit-menu [isSaving]="isSaving" (saveChanges)="saveChanges()"></ks-profile-edit-menu>
+<ks-profile-edit-menu [isSaving]="isSaving"
+                      (saveChanges)="saveChanges()"
+                      (cancel)="onCancel()"
+></ks-profile-edit-menu>
+
+<ks-message *ngIf="hasError" [type]="'error'" [message]="error.message"></ks-message>
+<ks-message *ngIf="savedSuccess" [type]="'success'" [message]="'Saved!'"></ks-message>
 
 <ks-card>
     <ks-input [label]="'PROFILE.FIRST_NAME'|translate" [control]="firstName"></ks-input>
